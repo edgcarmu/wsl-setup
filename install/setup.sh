@@ -43,3 +43,17 @@ if is_confirmed; then
 else
   e_warning "Skipped SSH settings."
 fi
+
+# Create a directory for projects and development
+e_header "Creating Developer directory in Home"
+mkdir ${HOME}/Developer
+
+# Cleanup cached downloads and remove the installation zip and folder
+e_header "Removing unnecessary files"
+sudo apt -y autoremove
+rm -rf ${HOME}/wsl-setup.tar.gz
+rm -rf ${HOME}/wsl-setup.zip
+#rm -rf ${DOTFILES_DIRECTORY}
+
+# Finish
+e_success "Reboot and enjoy!"
