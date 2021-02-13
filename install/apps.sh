@@ -19,4 +19,20 @@ sudo apt -y update
 sudo apt -y install git
 
 # Nodejs
- sudo apt -y install nodejs
+curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
+sudo apt-get install -y nodejs
+
+# NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+
+# Yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt -y update && sudo apt -y install yarn
+
+# Ubuntu WSL
+# Check out https://github.com/wslutilities/wslufor more details
+sudo apt install ubuntu-wsl
+
+# Finish
+e_success "Finished applications installation."
