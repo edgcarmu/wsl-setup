@@ -44,15 +44,23 @@ else
   e_warning "Skipped SSH settings."
 fi
 
+# Install Apache2
+seek_confirmation "Warning: This step install Apache2"
+if is_confirmed; then
+  bash ./install/apache.sh
+else
+  e_warning "Skipped Apache2 installation."
+fi
+
 # Create a directory for projects and development
 e_header "Creating Developer directory in Home"
 mkdir ${HOME}/Developer
 
 # Cleanup cached downloads and remove the installation zip and folder
 e_header "Removing unnecessary files"
-sudo apt -y autoremove
-rm -rf ${HOME}/wsl-setup.tar.gz
-rm -rf ${HOME}/wsl-setup.zip
+#sudo apt -y autoremove
+#rm -rf ${HOME}/wsl-setup.tar.gz
+#rm -rf ${HOME}/wsl-setup.zip
 #rm -rf ${DOTFILES_DIRECTORY}
 
 # Finish
